@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1081434296120",
+    "firebase_url": "https://bis-driver-727374.firebaseio.com",
+    "project_id": "bis-driver-727374",
+    "storage_bucket": "bis-driver-727374.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081434296120:android:c481dbd1272c5dbb21bbcd",
+        "android_client_info": {
+          "package_name": "gap.com.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1081434296120-ii99o7ie7ge9pqb47vhs6qjqh3qe3bm9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gap.com.driver",
+            "certificate_hash": "02b535d9cfa57e33e696ffa221130eba3a7e2eec"
+          }
+        },
+        {
+          "client_id": "1081434296120-kvdvj9d959hremem1fbbfquvpe05stab.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQy3cPtnvh_5yRMKRpvlTXxysVzC09CZ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1081434296120-kvdvj9d959hremem1fbbfquvpe05stab.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,207 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <androidx.drawerlayout.widget.DrawerLayout
+                    android:id="@+id/drawer_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:id="@+id/searchLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:visibility="gone">
+
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/editTextEndDate"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_margin="2dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/textview_report_style"
+                                android:drawableLeft="@drawable/select_calendar"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:gravity="right|center_vertical"
+                                android:hint="    تا تاریخ   "
+                                android:padding="2dp"
+                                android:textColor="@color/black"
+                                android:textCursorDrawable="@null"
+                                android:textSize="16sp" />
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/editTextStartDate"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_margin="2dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/textview_report_style"
+                                android:drawableLeft="@drawable/select_calendar"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:gravity="right|center_vertical"
+                                android:hint="     از تاریخ    "
+                                android:padding="2dp"
+                                android:textColor="@color/black"
+                                android:textCursorDrawable="@null"
+                                android:textSize="16sp" />
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/layoutDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2dp"
+                            android:padding="2dp">
+
+                         <LinearLayout
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:orientation="horizontal"
+                             android:layout_centerHorizontal="true">
+
+                             <gap.com.driver.widget.CustomTextViewTitle
+                                 android:id="@+id/txt_showDate"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="50dp"
+                                 android:textColor="@color/green"
+                                 android:textSize="16sp"
+                                 android:gravity="center_vertical"
+                                 android:text="1399"/>
+
+                         </LinearLayout>
+
+
+
+                            <RelativeLayout
+                                android:id="@+id/layout_left"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:padding="3dp"
+                                android:layout_margin="3dp"
+                                android:layout_alignParentLeft="true">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_left"
+                                    android:layout_width="20dp"
+                                    android:layout_height="40dp"
+                                    android:layout_centerInParent="true"
+                                    android:background="@drawable/arrowleft" />
+
+                            </RelativeLayout>
+
+
+                            <RelativeLayout
+                                android:id="@+id/layout_right"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:padding="3dp"
+                                android:layout_margin="3dp"
+                                android:layout_alignParentRight="true">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="40dp"
+                                    android:layout_centerInParent="true"
+                                    android:background="@drawable/arrowright" />
+
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+                        <gap.com.driver.widget.CustomTextViewTitle
+                            android:id="@+id/txt_null"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="درخواستی وجود ندارد"
+                            android:textSize="15sp" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_below="@+id/layoutDate" />
+
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/floatingActionButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_margin="10dp"
+                            android:src="@mipmap/plus"
+                            app:backgroundTint="@color/colorPrimaryDark" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/relDrawer"
+                        android:layout_width="290dp"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/toolbar"
+                        android:layout_gravity="right">
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/listView_drawer"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:choiceMode="singleChoice"
+                            android:divider="@android:color/transparent"
+                            android:dividerHeight="5dp" />
+
+
+                    </RelativeLayout>
+
+                </androidx.drawerlayout.widget.DrawerLayout>
+
+                <com.github.rahatarmanahmed.cpv.CircularProgressView
+                    android:id="@+id/waitProgress"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone"
+                    app:cpv_animAutostart="true"
+                    app:cpv_color="@color/colorPrimary"
+                    app:cpv_indeterminate="true" />
+
+            </RelativeLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
