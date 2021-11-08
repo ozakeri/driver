@@ -196,8 +196,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Context wrapper = new ContextThemeWrapper(getApplicationContext(), R.style.popupMenuStyle);
                 PopupMenu popup = new PopupMenu(wrapper, calendarIconLayout);
-                popup.getMenu().add(1, R.id.action_today, 1, R.string.action_selectToday);
-                popup.getMenu().add(1, R.id.action_custom, 2, R.string.action_selectCustom);
+                popup.getMenu().add(1, R.id.action_today, 1, "امروز                   ");
+                popup.getMenu().add(1, R.id.action_custom, 2, "برو به                   ");
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
 
                     @Override
@@ -292,6 +292,43 @@ public class MainActivity extends AppCompatActivity {
             public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
                 // Whatever you want
                 //Toast.makeText(getApplicationContext(),"onDrawerSlide",Toast.LENGTH_LONG).show();
+
+                if (currentPageName.equals("MonthlyFragment")){
+                    mDrawerList.getChildAt(0).setBackgroundColor(getResources().getColor(R.color.lightgray03));
+                }else {
+                    mDrawerList.getChildAt(0).setBackgroundColor(getResources().getColor(R.color.transparent));
+                }
+
+                if (currentPageName.equals("CommentFragment")){
+                    mDrawerList.getChildAt(1).setBackgroundColor(getResources().getColor(R.color.lightgray03));
+                }else {
+                    mDrawerList.getChildAt(1).setBackgroundColor(getResources().getColor(R.color.transparent));
+                }
+
+                if (currentPageName.equals("ComplaintFragment")){
+                    mDrawerList.getChildAt(2).setBackgroundColor(getResources().getColor(R.color.lightgray03));
+                }else {
+                    mDrawerList.getChildAt(2).setBackgroundColor(getResources().getColor(R.color.transparent));
+                }
+
+                if (currentPageName.equals("ListLeaveFragment")){
+                    mDrawerList.getChildAt(3).setBackgroundColor(getResources().getColor(R.color.lightgray03));
+                }else {
+                    mDrawerList.getChildAt(3).setBackgroundColor(getResources().getColor(R.color.transparent));
+                }
+
+                if (currentPageName.equals("SettingsFragment")){
+                    mDrawerList.getChildAt(4).setBackgroundColor(getResources().getColor(R.color.lightgray03));
+                }else {
+                    mDrawerList.getChildAt(4).setBackgroundColor(getResources().getColor(R.color.transparent));
+                }
+
+                if (currentPageName.equals("AboutFragment")){
+                    mDrawerList.getChildAt(5).setBackgroundColor(getResources().getColor(R.color.lightgray03));
+                }else {
+                    mDrawerList.getChildAt(5).setBackgroundColor(getResources().getColor(R.color.transparent));
+                }
+
             }
 
             @Override

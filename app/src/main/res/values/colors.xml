@@ -44,6 +44,7 @@
     <color name="orrange">#e33d1b</color>
     <color name="orange_low">#ff9e80</color>
     <color name="darkorrange">#cc2303</color>
+    <color name="transparent">#00000000</color>
 
     <color name="event_color_01">#59dbe0</color>
     <color name="event_color_02">#f57f68</color>

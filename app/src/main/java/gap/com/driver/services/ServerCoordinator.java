@@ -341,6 +341,10 @@ public class ServerCoordinator {
         wsParameters.add(new Util.WSParameter("driverId", driverId));
         wsParameters.add(new Util.WSParameter("fromDate", fromDate));
         wsParameters.add(new Util.WSParameter("toDate", toDate));
+
+        System.out.println("fromDate====" + fromDate);
+        System.out.println("toDate====" + toDate);
+
         //wsParameters.add(new Util.WSParameter("toDate", toDate));
         String json = Util.createJson(wsParameters);
         System.out.println("json1111===" + json);

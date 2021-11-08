@@ -495,16 +495,16 @@ public class ListLeaveFragment extends Fragment implements AdapterView.OnItemSel
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void moveToMonth(int counter) {
         PersianDate persianDate = new PersianDate();
-
-        DateTime month = new DateTime().minusMonths (1);
-
-
         DateTime now = DateTime.now();
         DateTime to = now.minusMonths(counter - 1);
         DateTime from = now.minusMonths(counter);
         persianDate.initGrgDate(to.getYear(), to.getMonthOfYear(), 1);
         toDate = String.valueOf(to);
         fromDate = String.valueOf(from);
+
+        System.out.println("==========toDate==========" + toDate);
+        System.out.println("==========fromDate==========" + fromDate);
+        System.out.println("==========counter==========" + counter);
         txt_showDate.setText(CommonMethod.numNames1[persianDate.getShMonth() - 1] + " " + Utils.latinNumberToPersian(String.valueOf(persianDate.getShYear())));
         waitProgress.setVisibility(View.VISIBLE);
         getAllDriver();

@@ -59,7 +59,7 @@ public class FishActivity extends AppCompatActivity {
 
         PersianDate persianDate = new PersianDate();
         txt_date.setText(Utils.latinNumberToPersian("تاریخ : " + persianDate.getShYear() + "/" + persianDate.getShMonth() + "/" + persianDate.getShDay()));
-        txt_salaryId.setText(Utils.latinNumberToPersian( "شماره : "  + salaryAttributeResponseBean.getSalaryAttribute().getId()));
+        txt_salaryId.setText(Utils.latinNumberToPersian( "شماره : "  + salaryAttributeResponseBean.getSalaryAttributeId()));
 
 
         if (salaryAttributeResponseBean.getSalaryAttribute().getFractionWork() != null) {

@@ -144,15 +144,6 @@
                         android:layout_centerInParent="true"
                         android:visibility="gone"/>
 
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/btnListFab"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_gravity="bottom|start"
-                        android:layout_marginLeft="20dp"
-                        android:background="@drawable/empty_list" />
-
                 </RelativeLayout>
                 <!--</ScrollView>-->
 
@@ -170,6 +161,15 @@
 
 
         <include layout="@layout/persistent_bottomsheet_monthly"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnListFab"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|start"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/empty_list" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
