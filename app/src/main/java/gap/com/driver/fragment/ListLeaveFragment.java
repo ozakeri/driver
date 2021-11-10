@@ -32,7 +32,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.greenrobot.eventbus.EventBus;
 import org.joda.time.DateTime;
 
-import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -81,7 +80,8 @@ public class ListLeaveFragment extends Fragment implements AdapterView.OnItemSel
     //private Spinner spin;
     List<String> itemDate;
     private PersianDate persianDate;
-    private int counter = 1;
+    private int counter = 0;
+    private Roozh roozh;
 
 
     public ListLeaveFragment() {
@@ -105,6 +105,7 @@ public class ListLeaveFragment extends Fragment implements AdapterView.OnItemSel
         // spin = (Spinner) view.findViewById(R.id.selectDay);
         //spin.setOnItemSelectedListener(this);
         persianDate = new PersianDate();
+        roozh = new Roozh();
 
         editTextStartDate = view.findViewById(R.id.editTextStartDate);
         editTextEndDate = view.findViewById(R.id.editTextEndDate);
@@ -126,7 +127,7 @@ public class ListLeaveFragment extends Fragment implements AdapterView.OnItemSel
         //fromDate = year + "-" + (month + 2) + "-" + day;
         //toDate = currentYear + "-" + (currentMonth + 2) + "-" + currentDay;
 
-        moveToMonth(counter);
+        moveToMonth();
 
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -146,19 +147,18 @@ public class ListLeaveFragment extends Fragment implements AdapterView.OnItemSel
                 if (counter != 6) {
                     counter++;
                     System.out.println("counter++=====" + counter);
-                    moveToMonth(counter);
+                    moveToMonth();
                 }
-
             }
         });
 
         layout_left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (counter != 1) {
+                if (counter != 0) {
                     counter--;
                     System.out.println("counter--=====" + counter);
-                    moveToMonth(counter);
+                    moveToMonth();
                 }
             }
         });
@@ -241,6 +241,9 @@ public class ListLeaveFragment extends Fragment implements AdapterView.OnItemSel
     public void getPersonTimeOff() {
         personTimeOffLists = new ArrayList<>();
 
+        System.out.println("getPersonTimeOff==fromDate==" + fromDate);
+        System.out.println("getPersonTimeOff==toDate==" + toDate);
+
         if (driver == null)
             return;
         ServerCoordinator.getInstance().getDriverPersonTimeOffList(driver.getUsername(), driver.getPassword(), sharedData.getDriverId(), fromDate, toDate,
@@ -301,7 +304,6 @@ public class ListLeaveFragment extends Fragment implements AdapterView.OnItemSel
         txt_cancel = bottomSheet.findViewById(R.id.txt_cancel);
         final BottomSheetBehavior behavior = BottomSheetBehavior.from(bottomSheet);
         bottomSheet.setVisibility(View.GONE);
-        final Roozh roozh = new Roozh();
 
         numberpicker_year.setMaxValue(1399);
         numberpicker_year.setMinValue(1395);
@@ -493,20 +495,29 @@ public class ListLeaveFragment extends Fragment implements AdapterView.OnItemSel
 
     @SuppressLint("SetTextI18n")
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void moveToMonth(int counter) {
+    public void moveToMonth() {
         PersianDate persianDate = new PersianDate();
         DateTime now = DateTime.now();
-        DateTime to = now.minusMonths(counter - 1);
-        DateTime from = now.minusMonths(counter);
-        persianDate.initGrgDate(to.getYear(), to.getMonthOfYear(), 1);
-        toDate = String.valueOf(to);
-        fromDate = String.valueOf(from);
+        persianDate.initGrgDate(now.getYear(), now.getMonthOfYear() - counter, now.getDayOfMonth());
+        roozh.PersianToGregorian(persianDate.getShYear(), persianDate.getShMonth(), 1);
+        fromDate = roozh.getYear() + "-" + roozh.getMonth() + "-" + roozh.getDay();
+        System.out.println("==========fromDate==========" + persianDate.getShYear() + "-" + persianDate.getShMonth() + "-" + 1);
 
-        System.out.println("==========toDate==========" + toDate);
-        System.out.println("==========fromDate==========" + fromDate);
-        System.out.println("==========counter==========" + counter);
+        roozh.PersianToGregorian(persianDate.getShYear(), persianDate.getShMonth(), persianDate.getShDay());
+
+        if (counter != 0){
+            roozh.PersianToGregorian(persianDate.getShYear(), persianDate.getShMonth(), 31);
+        }
+        toDate = roozh.getYear() + "-" + roozh.getMonth() + "-" + roozh.getDay();
+        System.out.println("==========toDate==========" + persianDate.getShYear() + "-" + persianDate.getShMonth() + "-" + persianDate.getShDay());
+
         txt_showDate.setText(CommonMethod.numNames1[persianDate.getShMonth() - 1] + " " + Utils.latinNumberToPersian(String.valueOf(persianDate.getShYear())));
         waitProgress.setVisibility(View.VISIBLE);
         getAllDriver();
+
+        // DateTime to = now.minusMonths(counter - 1);
+        // DateTime from = now.minusMonths(counter);
+        //toDate = String.valueOf(to);
+        // fromDate = String.valueOf(from);
     }
 }

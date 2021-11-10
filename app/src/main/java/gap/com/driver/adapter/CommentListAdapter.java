@@ -83,12 +83,12 @@ public class CommentListAdapter extends RecyclerView.Adapter<CommentListAdapter.
             customView.txt_dateCreation.setText(commentBean.getCommentDate());
 
             if (persianDate.getShDay() - day == 0) {
-                customView.txt_dateCreation.setText(" امروز " + " ساعت " + commentBean.getCommentTime());
+                customView.txt_dateCreation.setText(" امروز " + " - " + commentBean.getCommentTime());
 
             } else if (persianDate.getShDay() - day == 1) {
-                customView.txt_dateCreation.setText(" دیروز " + " ساعت " + commentBean.getCommentTime());
+                customView.txt_dateCreation.setText(" دیروز " + " - " + commentBean.getCommentTime());
             } else {
-                customView.txt_dateCreation.setText(currentString + " ساعت " + commentBean.getCommentTime());
+                customView.txt_dateCreation.setText(currentString + " - " + commentBean.getCommentTime());
             }
 
         }

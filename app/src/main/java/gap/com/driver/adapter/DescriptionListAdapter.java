@@ -91,7 +91,7 @@ public class DescriptionListAdapter extends RecyclerView.Adapter<DescriptionList
             }
 
             if (driverSACommentList.getDateCreation() != null) {
-                SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm");
                 try {
                     Date date = formatter.parse(driverSACommentList.getDateCreation());
                     Calendar calender1 = Calendar.getInstance();
@@ -103,12 +103,13 @@ public class DescriptionListAdapter extends RecyclerView.Adapter<DescriptionList
                     System.out.println("jalaliCalendarUtil=====" + persianDate.getShDay());
 
                     if (persianDate.getShDay() - jalaliCalendarUtil.getIranianDay() == 0) {
-                        customView.txt_dateCreation.setText(" امروز ");
+                        customView.txt_dateCreation.setText(" امروز " + " - " + date.getHours() + ":" + date.getMinutes());
 
                     } else if (persianDate.getShDay() - jalaliCalendarUtil.getIranianDay() == 1) {
-                        customView.txt_dateCreation.setText(" دیروز ");
+                        customView.txt_dateCreation.setText(" دیروز " + " - " + date.getHours() + ":" + date.getMinutes());
                     } else {
-                        customView.txt_dateCreation.setText(jalaliCalendarUtil.getIranianDate3());
+                        customView.txt_dateCreation.setText(jalaliCalendarUtil.getIranianDate3() + " - " + date.getHours() + ":" + date.getMinutes());
+                        ;
                     }
 
                 } catch (ParseException e) {
@@ -117,9 +118,9 @@ public class DescriptionListAdapter extends RecyclerView.Adapter<DescriptionList
             }
 
 
-            if (position%2 == 0){
+            if (position % 2 == 0) {
                 customView.main_layout.setBackgroundResource(R.color.light_green);
-            }else {
+            } else {
                 customView.main_layout.setBackgroundResource(R.color.light_green1);
             }
             customView.img_edit.setOnClickListener(new View.OnClickListener() {

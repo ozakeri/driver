@@ -76,7 +76,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_margin="3dp"
+                    android:layout_marginRight="50dp"
                     android:layout_weight="1"
                     android:gravity="right">
 
@@ -108,7 +108,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        >
 
                         <gap.com.driver.widget.CustomTextView
                             android:layout_width="wrap_content"
@@ -273,7 +274,7 @@
                             android:layout_span="1"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:text="روز غیبت"
+                            android:text=" غیبت"
                             android:textColor="#000000"
                             android:textSize="12dp"
                             android:textStyle="bold" />
@@ -304,7 +305,7 @@
                             android:layout_height="wrap_content"
                             android:layout_span="1"
                             android:padding="10dp"
-                            android:text="روز تعطیل کاری"
+                            android:text=" تعطیل کاری"
                             android:textColor="#000000"
                             android:textSize="12dp"
                             android:textStyle="bold" />
@@ -335,7 +336,7 @@
                             android:layout_span="1"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:text="روز کارکرد"
+                            android:text=" کارکرد"
                             android:textColor="#000000"
                             android:textStyle="bold" />
 
@@ -404,7 +405,7 @@
                             android:layout_span="1"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:text="روز نوبت کاری"
+                            android:text=" نوبت کاری"
                             android:textColor="#000000"
                             android:textSize="12dp"
                             android:textStyle="bold" />
@@ -504,7 +505,7 @@
                             android:layout_span="1"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:text="روز ماموریت"
+                            android:text=" ماموریت"
                             android:textColor="#000000"
                             android:textSize="12dp"
                             android:textStyle="bold" />
@@ -595,7 +596,7 @@
                             android:layout_span="1"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:text="روز مرخصی"
+                            android:text=" مرخصی"
                             android:textColor="#000000"
                             android:textSize="12dp"
                             android:textStyle="bold" />

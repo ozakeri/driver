@@ -196,8 +196,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Context wrapper = new ContextThemeWrapper(getApplicationContext(), R.style.popupMenuStyle);
                 PopupMenu popup = new PopupMenu(wrapper, calendarIconLayout);
-                popup.getMenu().add(1, R.id.action_today, 1, "امروز                   ");
-                popup.getMenu().add(1, R.id.action_custom, 2, "برو به                   ");
+                popup.getMenu().add(1, R.id.action_today, 1, "امروز                               ");
+                popup.getMenu().add(1, R.id.action_custom, 2, "برو به                               ");
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
 
                     @Override

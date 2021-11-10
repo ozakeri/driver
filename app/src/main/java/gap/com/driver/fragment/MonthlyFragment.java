@@ -155,7 +155,7 @@ public class MonthlyFragment extends Fragment {
         relativeLayout_top = view1.findViewById(R.id.relativeLayout_top);
         progressbar.setVisibility(View.GONE);
         img_progress.setVisibility(View.GONE);
-        btnListFab = view1.findViewById(R.id.btnListFab);
+        //btnListFab = view1.findViewById(R.id.btnListFab);
         coordinatorLayout = (CoordinatorLayout) view1.findViewById(R.id.coordinator);
         init_persistent_bottomsheet();
         init(view1);
@@ -288,9 +288,9 @@ public class MonthlyFragment extends Fragment {
                         day = Integer.parseInt(strDate);
                         tmpDateConvertor.setGregorianDate(year, month, day);
 
-                        sharedData.setYear(tmpDateConvertor.getGregorianYear());
-                        sharedData.setMonth(tmpDateConvertor.getGregorianMonth());
-                        sharedData.setDay(tmpDateConvertor.getGregorianDay());
+                        sharedData.setYear(year);
+                        sharedData.setMonth(month);
+                        sharedData.setDay(day);
 
                         sharedData.setGridOnClick(Constant.ACTION_GRID_ONCLICK);
                         sharedData.setSelectedMenuItem(Constant.ACTION_DAY);
@@ -603,6 +603,7 @@ public class MonthlyFragment extends Fragment {
         persistentbottomSheet = coordinatorLayout.findViewById(R.id.bottomsheet);
         iv_trigger = (ImageView) persistentbottomSheet.findViewById(R.id.iv_fab);
         relativeLayout = (RelativeLayout) persistentbottomSheet.findViewById(R.id.relativeLayout);
+        btnListFab = persistentbottomSheet.findViewById(R.id.btnListFab);
         linearLayout = (LinearLayout) persistentbottomSheet.findViewById(R.id.linearLayout);
         linearLayout_graph = (LinearLayout) persistentbottomSheet.findViewById(R.id.linearLayout_graph);
         final BottomSheetBehavior behavior = BottomSheetBehavior.from(persistentbottomSheet);
@@ -663,7 +664,6 @@ public class MonthlyFragment extends Fragment {
      * */
     private void isDeviceDateTimeValid(final int year, final int month, int day) {
         final Driver driver = application.getCurrentUser();
-        btnListFab.setVisibility(View.GONE);
         persistentbottomSheet.setVisibility(View.GONE);
         if (driver != null) {
             final String username = driver.getUsername();

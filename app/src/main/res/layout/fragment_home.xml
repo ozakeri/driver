@@ -133,7 +133,6 @@
                         android:id="@+id/recyclerView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_above="@+id/btnListFab"
                         android:layout_below="@+id/rl_DayWeeK_Main"
                         android:numColumns="7" />
 
@@ -161,15 +160,6 @@
 
 
         <include layout="@layout/persistent_bottomsheet_monthly"/>
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/btnListFab"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="bottom|start"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/empty_list" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
