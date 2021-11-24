@@ -1016,7 +1016,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#C1F8F3F3"
-                android:visibility="gone" />
+                android:visibility="gone"/>
 
 
         </androidx.cardview.widget.CardView>

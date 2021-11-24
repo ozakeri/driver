@@ -256,28 +256,36 @@
                         android:gravity="right"
                         android:background="@drawable/border_fish_cell">
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:id="@+id/txt_absentDay"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold"
-                            android:layout_marginRight="70dp"/>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text=" غیبت"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
+                            <gap.com.driver.widget.CustomTextView
+                                android:id="@+id/txt_absentDay"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_span="1"
+                                android:padding="10dp"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold" />
+
+                            <gap.com.driver.widget.CustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text=" غیبت"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                android:layout_alignParentRight="true"/>
+
+                        </RelativeLayout>
+
+
 
                     </TableRow>
 
@@ -288,27 +296,35 @@
                         android:gravity="right"
                         android:background="@drawable/border_fish_cell">
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:id="@+id/txt_doubleDay"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="40dp"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_span="1"
-                            android:padding="10dp"
-                            android:text=" تعطیل کاری"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
+                            <gap.com.driver.widget.CustomTextView
+                                android:id="@+id/txt_doubleDay"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_marginLeft="15dp"
+                                android:padding="10dp"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold" />
+
+                            <gap.com.driver.widget.CustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_span="1"
+                                android:padding="10dp"
+                                android:text=" تعطیل کاری"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                android:layout_alignParentRight="true"/>
+
+                        </RelativeLayout>
+
+
 
                     </TableRow>
 
@@ -318,27 +334,35 @@
                         android:gravity="right"
                         android:background="@drawable/border_fish_cell">
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:id="@+id/txt_workingDayCount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="25dp"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text=" کارکرد"
-                            android:textColor="#000000"
-                            android:textStyle="bold" />
+                            <gap.com.driver.widget.CustomTextView
+                                android:id="@+id/txt_workingDayCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold" />
+
+                            <gap.com.driver.widget.CustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text=" کارکرد"
+                                android:textColor="#000000"
+                                android:textStyle="bold"
+                                android:layout_alignParentRight="true"/>
+                        </RelativeLayout>
+
+
 
                     </TableRow>
 
@@ -356,28 +380,73 @@
                         android:gravity="right"
                         android:background="@drawable/border_fish_cell">
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:id="@+id/txt_fractionPerform"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold"
-                            android:layout_marginRight="25dp"/>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <gap.com.driver.widget.CustomTextView
+                                android:id="@+id/txt_fractionPerform"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                android:layout_marginLeft="15dp"/>
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text="کسر کار عملکردی"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
+                            <gap.com.driver.widget.CustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="کسر کار عملکردی"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                android:layout_alignParentRight="true"/>
+
+                        </RelativeLayout>
+
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:background="@drawable/border_fish_cell">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <gap.com.driver.widget.CustomTextView
+                                android:id="@+id/txt_shiftDay"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="45dp"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                android:layout_marginLeft="15dp"/>
+
+                            <gap.com.driver.widget.CustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_span="1"
+                                android:layout_alignParentRight="true"
+                                android:padding="10dp"
+                                android:text=" نوبت کاری"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+
 
                     </TableRow>
 
@@ -387,58 +456,36 @@
                         android:gravity="right"
                         android:background="@drawable/border_fish_cell">
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:id="@+id/txt_shiftDay"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="45dp"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text=" نوبت کاری"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
+                            <gap.com.driver.widget.CustomTextView
+                                android:id="@+id/txt_dutyWork"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold" />
 
-                    </TableRow>
+                            <gap.com.driver.widget.CustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="کل کارکرد"
+                                android:textColor="#000000"
+                                android:textStyle="bold" />
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:background="@drawable/border_fish_cell">
+                        </RelativeLayout>
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:id="@+id/txt_dutyWork"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="25dp"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text="کل کارکرد"
-                            android:textColor="#000000"
-                            android:textStyle="bold" />
 
                     </TableRow>
 
@@ -456,28 +503,37 @@
                         android:gravity="right"
                         android:background="@drawable/border_fish_cell">
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:id="@+id/txt_fractionWork"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold"
-                            android:layout_marginRight="70dp"/>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold"
-                            android:text="کسر کار"/>
+                            <gap.com.driver.widget.CustomTextView
+                                android:id="@+id/txt_fractionWork"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                android:layout_marginLeft="15dp"/>
+
+                            <gap.com.driver.widget.CustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                android:layout_alignParentRight="true"
+                                android:text="کسر کار"/>
+
+                        </RelativeLayout>
+
+
 
                     </TableRow>
 
@@ -487,28 +543,36 @@
                         android:gravity="right"
                         android:background="@drawable/border_fish_cell">
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:id="@+id/txt_dutyDay"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="60dp"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text=" ماموریت"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
+                            <gap.com.driver.widget.CustomTextView
+                                android:id="@+id/txt_dutyDay"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                android:layout_marginLeft="15dp"/>
+
+                            <gap.com.driver.widget.CustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text=" ماموریت"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                android:layout_alignParentRight="true"/>
+                        </RelativeLayout>
+
+
 
                     </TableRow>
 
@@ -578,28 +642,33 @@
                         android:gravity="right"
                         android:background="@drawable/border_fish_cell">
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:id="@+id/txt_timeOfDay"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="60dp"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <gap.com.driver.widget.CustomTextView
+                                android:id="@+id/txt_timeOfDay"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                android:layout_marginLeft="15dp"/>
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text=" مرخصی"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
+                            <gap.com.driver.widget.CustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text=" مرخصی"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                android:layout_alignParentRight="true"/>
+                        </RelativeLayout>
 
                     </TableRow>
 
@@ -668,28 +737,36 @@
                         android:gravity="right"
                         android:background="@drawable/border_fish_cell">
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:id="@+id/txt_overTime"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="25dp"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <gap.com.driver.widget.CustomTextView
+                                android:id="@+id/txt_overTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                android:layout_marginLeft="15dp"/>
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text="اضافه کار عملکردی"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
+                            <gap.com.driver.widget.CustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="اضافه کار عملکردی"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                android:layout_alignParentRight="true"/>
+
+                        </RelativeLayout>
+
+
 
                     </TableRow>
 
@@ -698,23 +775,26 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/border_fish_cell">
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:textColor="#000000"
-                            android:textStyle="bold" />
+
+                            <gap.com.driver.widget.CustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold" />
+
+                            <gap.com.driver.widget.CustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textColor="#000000"
+                                android:textStyle="bold" />
+
 
                     </TableRow>
 
@@ -759,28 +839,38 @@
                         android:gravity="right"
                         android:background="@drawable/border_fish_cell">
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:id="@+id/txt_overTimeWork"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="10dp"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text="اضافه کار قابل پرداخت"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
+                            <gap.com.driver.widget.CustomTextView
+                                android:id="@+id/txt_overTimeWork"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                android:layout_marginLeft="15dp"/>
+
+                            <gap.com.driver.widget.CustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="اضافه کار قابل پرداخت"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+
+
 
                     </TableRow>
 
@@ -829,7 +919,8 @@
                             android:padding="10dp"
                             android:textColor="#000000"
                             android:textSize="12dp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:layout_marginLeft="15dp"/>
 
                         <gap.com.driver.widget.CustomTextView
                             android:layout_width="wrap_content"
@@ -849,28 +940,37 @@
                         android:gravity="right"
                         android:background="@drawable/border_fish_cell">
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:id="@+id/txt_overTimeFind"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="40dp"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
-                        <gap.com.driver.widget.CustomTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text="مجموع اضافه کار"
-                            android:textColor="#000000"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
+                            <gap.com.driver.widget.CustomTextView
+                                android:id="@+id/txt_overTimeFind"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_span="1"
+                                android:padding="10dp"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                android:layout_marginLeft="15dp"/>
+
+                            <gap.com.driver.widget.CustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="مجموع اضافه کار"
+                                android:textColor="#000000"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                android:layout_alignParentRight="true"/>
+
+                        </RelativeLayout>
+
+
+
 
                     </TableRow>
 

@@ -13,6 +13,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.joda.time.LocalDate;
+import org.joda.time.Months;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -252,7 +255,25 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.MyView
             Roozh roozh = new Roozh();
             roozh.PersianToGregorian(Integer.parseInt(theyear), Integer.parseInt(monthNumber), Integer.parseInt(theday));
 
+
+            holder.year.setText(theyear);
+            holder.month.setText(monthNumber);
+            holder.day.setText(theday);
+
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+
+            if (Integer.parseInt(monthNumber) == persianDate.getShMonth()) {
+                for (int i = 0; i <= persianDate.getShDay(); i++) {
+
+                    if (Integer.parseInt(theday) == i) {
+                        holder.date.setText(String.valueOf(i));
+                        holder.gridCell.setTextColor(this._context.getResources().getColor(R.color.oil));
+                    }
+                }
+            } else {
+                holder.date.setText(String.valueOf(1));
+                holder.gridCell.setTextColor(this._context.getResources().getColor(R.color.oil));
+            }
 
 
             if (arrayList != null) {
@@ -432,7 +453,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.MyView
      * */
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView gridCell, calendar_day_gridcell_1, calendar_day_gridcell_2, calendar_description, id;
+        TextView gridCell, calendar_day_gridcell_1, calendar_day_gridcell_2, calendar_description, id,date,year,month,day;
         RelativeLayout relativeLayout,layout_top;
         ImageView statusIcon, shiftIcon;
 
@@ -447,6 +468,10 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.MyView
             layout_top = (RelativeLayout) convertView.findViewById(R.id.layout_top);
             statusIcon = (ImageView) convertView.findViewById(R.id.statusIcon);
             shiftIcon = (ImageView) convertView.findViewById(R.id.shiftIcon);
+            year = (TextView) convertView.findViewById(R.id.year);
+            month = (TextView) convertView.findViewById(R.id.month);
+            day = (TextView) convertView.findViewById(R.id.day);
+            date = (TextView) convertView.findViewById(R.id.date);
         }
     }
 

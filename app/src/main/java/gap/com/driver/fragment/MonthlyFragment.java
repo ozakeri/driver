@@ -46,6 +46,8 @@ import com.github.rahatarmanahmed.cpv.CircularProgressView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import org.greenrobot.eventbus.EventBus;
+import org.joda.time.LocalDate;
+import org.joda.time.Months;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -267,10 +269,21 @@ public class MonthlyFragment extends Fragment {
             @Override
             public void onItemClick(View view, int position) {
 
-                // TODO Auto-generated method stub
                 String id = (String) ((TextView) view.findViewById(R.id.id)).getText();
+                String adapterYear = (String) ((TextView) view.findViewById(R.id.year)).getText();
+                String adapterMonth = (String) ((TextView) view.findViewById(R.id.month)).getText();
+                String adapterDay = (String) ((TextView) view.findViewById(R.id.day)).getText();
+
+                final Roozh roozh = new Roozh();
+                roozh.PersianToGregorian(Integer.parseInt(adapterYear), Integer.parseInt(adapterMonth), Integer.parseInt(adapterDay));
+                LocalDate jamesBirthDay = new LocalDate(roozh.getYear(), roozh.getMonth(), roozh.getDay()+1);
+                LocalDate now = new LocalDate(persianDate.getGrgYear(), persianDate.getGrgMonth(), persianDate.getGrgDay());
+                int monthsBetween = Months.monthsBetween(jamesBirthDay, now).getMonths();
+
+                // TODO Auto-generated method stub
+
                 System.out.println("Monthly Fragment id====" + id);
-                if (!id.trim().isEmpty()) {
+                if (!id.trim().isEmpty() && monthsBetween < 6) {
                     String txt_day1 = ((TextView) view.findViewById(R.id.calendar_day_gridcell)).getText().toString();
                     String txt_day2 = ((TextView) view.findViewById(R.id.calendar_day_gridcell_1)).getText().toString();
                     String txt_day3 = ((TextView) view.findViewById(R.id.calendar_day_gridcell_2)).getText().toString();
@@ -391,13 +404,6 @@ public class MonthlyFragment extends Fragment {
         img_back = view1.findViewById(R.id.img_back);
 
         ArrayValueAddFunction();
-        txt_p1.append(StringArray.get(0));
-        txt_p2.append(StringArray.get(1));
-        txt_p3.append(StringArray.get(2));
-        txt_p4.append(StringArray.get(3));
-        txt_p5.append(StringArray.get(4));
-        txt_p6.append(StringArray.get(5));
-        txt_p7.append(StringArray.get(6));
 
         tmpDateConvertor = new DateConvertor();
         if (sharedData.getYear() != 0 && sharedData.getMonth() != 0 && sharedData.getDay() != 0) {

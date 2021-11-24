@@ -1,24 +1,32 @@
 package gap.com.driver.activity;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.ContextThemeWrapper;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.ListPopupWindow;
 import android.widget.ListView;
 import android.widget.PopupMenu;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -192,8 +200,10 @@ public class MainActivity extends AppCompatActivity {
 
         ////******calendar Icon toolbar click*******////
         calendarIcon.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onClick(View view) {
+
                 Context wrapper = new ContextThemeWrapper(getApplicationContext(), R.style.popupMenuStyle);
                 PopupMenu popup = new PopupMenu(wrapper, calendarIconLayout);
                 popup.getMenu().add(1, R.id.action_today, 1, "امروز                               ");
@@ -787,4 +797,5 @@ public class MainActivity extends AppCompatActivity {
             liceExpire_txt.setText("پایان اعتبار : " + second2);
         }
     }
+
 }

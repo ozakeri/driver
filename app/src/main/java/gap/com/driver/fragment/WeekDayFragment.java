@@ -42,6 +42,8 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.rahatarmanahmed.cpv.CircularProgressView;
 
 import org.greenrobot.eventbus.EventBus;
+import org.joda.time.LocalDate;
+import org.joda.time.Months;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -277,6 +279,7 @@ public class WeekDayFragment extends Fragment {
             TextView showDateName = (TextView) ((Activity) getContext()).findViewById(R.id.showDateName_txt);
             showDateName.setText("امروز" + " , " + persianDate.dayName(year, month, day));
             card_left.setEnabled(false);
+            disable_layout.setVisibility(VISIBLE);
         } else {
             TextView showDateName = (TextView) ((Activity) getContext()).findViewById(R.id.showDateName_txt);
             showDateName.setText(persianDate.dayName(year, month, day));
@@ -451,6 +454,7 @@ public class WeekDayFragment extends Fragment {
         sharedData.setMonth(month);
         sharedData.setDay(day);
         card_left.setEnabled(true);
+        disable_layout.setVisibility(View.GONE);
 
         if (Util.compareDates(getYesterdayDate(date), date12) == 0) {
             TextView showDateName = (TextView) ((Activity) getContext()).findViewById(R.id.showDateName_txt);
@@ -463,6 +467,7 @@ public class WeekDayFragment extends Fragment {
             TextView showDateName = (TextView) ((Activity) getContext()).findViewById(R.id.showDateName_txt);
             showDateName.setText("امروز" + " , " + persianDate.dayName(year, month, day));
             card_left.setEnabled(false);
+            disable_layout.setVisibility(VISIBLE);
         } else {
             TextView showDateName = (TextView) ((Activity) getContext()).findViewById(R.id.showDateName_txt);
             showDateName.setText(persianDate.dayName(year, month, day));
@@ -500,6 +505,7 @@ public class WeekDayFragment extends Fragment {
         sharedData.setMonth(month);
         sharedData.setDay(day);
         card_left.setEnabled(true);
+        disable_layout.setVisibility(View.GONE);
 
         if (Util.compareDates(getYesterdayDate(date), date12) == 0) {
             TextView showDateName = (TextView) ((Activity) getContext()).findViewById(R.id.showDateName_txt);
@@ -512,6 +518,7 @@ public class WeekDayFragment extends Fragment {
             TextView showDateName = (TextView) ((Activity) getContext()).findViewById(R.id.showDateName_txt);
             showDateName.setText("امروز" + " , " + persianDate.dayName(year, month, day));
             card_left.setEnabled(false);
+            disable_layout.setVisibility(VISIBLE);
         } else {
             TextView showDateName = (TextView) ((Activity) getContext()).findViewById(R.id.showDateName_txt);
             showDateName.setText(persianDate.dayName(year, month, day));
@@ -635,6 +642,7 @@ public class WeekDayFragment extends Fragment {
             main_layout.setVisibility(View.GONE);
             bottom_layout.setVisibility(View.GONE);
 
+
             showEmptyMessage.setVisibility(View.GONE);
             sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             //final String toDate = "";
@@ -661,6 +669,8 @@ public class WeekDayFragment extends Fragment {
                                             img_progress.setVisibility(View.GONE);
                                             main_layout.setVisibility(VISIBLE);
                                             bottom_layout.setVisibility(VISIBLE);
+
+                                            sharedData.setCurrentDay(day);
 
                                             if (response.getSalaryAttribute() != null) {
                                                 salaryAttribute = response.getSalaryAttribute();
@@ -823,10 +833,7 @@ public class WeekDayFragment extends Fragment {
                                                     linearLayout1.setVisibility(VISIBLE);
                                                     linearLayout2.setVisibility(View.VISIBLE);
                                                     linearLayout3.setVisibility(View.VISIBLE);
-                                                    disable_layout.setVisibility(View.GONE);
                                                     disable_right_layout.setVisibility(View.GONE);
-                                                   // card_left.setEnabled(true);
-                                                    //card_right.setEnabled(true);
 
                                                     int processStatus = driverDailyActivity.getProcessStatus();
                                                     boolean b = DriverApplication.getInstance().getSharedPreferences().getBoolean("firstLogin", false);
@@ -850,11 +857,29 @@ public class WeekDayFragment extends Fragment {
                                                         String month2 = secondDate2[1];
                                                         String day2 = secondDate2[2];
 
-                                                        if (Integer.parseInt(year1) == Integer.parseInt(year2) && (Integer.parseInt(month1) - Integer.parseInt(month2) == 6)
-                                                                && Integer.parseInt(day1) >= Integer.parseInt(day2)) {
+                                                        Roozh roozh = new Roozh();
+                                                        persianDate = new PersianDate();
+                                                        roozh.PersianToGregorian(year, month, day);
+                                                        LocalDate jamesBirthDay = new LocalDate(roozh.getYear(), roozh.getMonth(), roozh.getDay());
+                                                        LocalDate now = new LocalDate(persianDate.getGrgYear(), persianDate.getGrgMonth(), persianDate.getGrgDay());
+
+                                                        int monthsBetween = Months.monthsBetween(jamesBirthDay, now).getMonths();
+                                                        System.out.println("======monthsBetween=========" + monthsBetween);
+                                                        System.out.println("======date=========" + year+"-"+month+"-"+day);
+
+                                                        if (monthsBetween == 6){
                                                             card_right.setEnabled(false);
                                                             disable_right_layout.setVisibility(VISIBLE);
                                                         }
+
+                                                       /* if (Integer.parseInt(year1) == Integer.parseInt(year2) && (Integer.parseInt(month1) - Integer.parseInt(month2) == 6)
+                                                                && Integer.parseInt(day1) >= Integer.parseInt(day2)) {
+                                                            card_right.setEnabled(false);
+                                                            disable_right_layout.setVisibility(VISIBLE);
+
+                                                            System.out.println("day1============" + day1);
+                                                            System.out.println("day2============" + day2);
+                                                        }*/
 
                                                     } catch (ParseException e) {
                                                         e.printStackTrace();
