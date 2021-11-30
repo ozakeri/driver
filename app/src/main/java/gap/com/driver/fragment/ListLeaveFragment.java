@@ -144,7 +144,7 @@ public class ListLeaveFragment extends Fragment implements AdapterView.OnItemSel
         layout_right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (counter != 6) {
+                if (counter != 12) {
                     counter++;
                     System.out.println("counter++=====" + counter);
                     moveToMonth();

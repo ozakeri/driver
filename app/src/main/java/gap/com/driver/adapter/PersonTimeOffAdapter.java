@@ -82,10 +82,10 @@ public class PersonTimeOffAdapter extends RecyclerView.Adapter<PersonTimeOffAdap
 
                 if (countDate.equals("0")) {
                     holder.txt_startDate.setText(Utils.latinNumberToPersian(fromDate));
-                    holder.txt_date.setText(Utils.latinNumberToPersian( 1 + " روز "));
+                    holder.txt_date.setText(Utils.latinNumberToPersian(personTimeOff.getPersonTimeOffTypeEn_text() + " - " + 1 + " روز "));
                 } else {
                     holder.txt_startDate.setText(Utils.latinNumberToPersian(fromDate));
-                    holder.txt_date.setText(Utils.latinNumberToPersian(countDate));
+                    holder.txt_date.setText(personTimeOff.getPersonTimeOffTypeEn_text() + " - " + Utils.latinNumberToPersian(countDate));
                 }
 
 
