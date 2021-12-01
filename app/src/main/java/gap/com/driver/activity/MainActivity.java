@@ -75,6 +75,7 @@ import gap.com.driver.util.Constant;
 import gap.com.driver.util.Globals;
 import gap.com.driver.util.JalaliCalendarUtil;
 import gap.com.driver.util.Util;
+import gap.com.driver.util.Utils;
 
 import static gap.com.driver.R.id.content_frame;
 
@@ -92,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     //private String recognize;
     private TextView spinner_txt, txt_version;
     private ImageView menuIcon;
-    private CircleImageView img_profile;
+    private ImageView img_profile;
     private Button calendarIcon;
     private Globals sharedData = Globals.getInstance();
     private PersianDate persianDate;
@@ -766,7 +767,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                img_profile.setImageBitmap(bitmap);
+                img_profile.setImageBitmap(Utils.getCroppedBitmap(bitmap));
             }
 
 

@@ -29,6 +29,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import gap.com.driver.R;
 import gap.com.driver.app.DriverApplication;
 import gap.com.driver.model.DriverEDAList;
+import gap.com.driver.util.Utils;
 import gap.com.driver.widget.BTextView;
 
 public class DriverShiftListAdapter extends RecyclerView.Adapter<DriverShiftListAdapter.CustomView> {
@@ -75,7 +76,7 @@ public class DriverShiftListAdapter extends RecyclerView.Adapter<DriverShiftList
             }
         }
         Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-        customView.img_hamShift.setImageBitmap(bitmap);
+        customView.img_hamShift.setImageBitmap(Utils.getCroppedBitmap(bitmap));
 
 
         customView.img_message.setOnClickListener(new View.OnClickListener() {

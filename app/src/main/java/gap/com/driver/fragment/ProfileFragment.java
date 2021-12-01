@@ -27,13 +27,14 @@ import gap.com.driver.common.CalendarUtil;
 import gap.com.driver.gapcalendar.customweekview.PersianDate;
 import gap.com.driver.model.DriverProfileResponseBean;
 import gap.com.driver.util.Globals;
+import gap.com.driver.util.Utils;
 
 import static gap.com.driver.R.id.content_frame;
 
 public class ProfileFragment extends Fragment {
     private TextView txt_driverName, txt_nationalNo, txt_mobileNo, txt_phoneNo, txt_liceNo, txt_expDate, txt_insuranceNo, txt_address, txt_between, txt_postalCode, txt_loginDate,txt_baseShift;
     private ImageView img_editProfile;
-    private CircleImageView img_driverImage;
+    private ImageView img_driverImage;
     private Globals globals = Globals.getInstance();
 
     public ProfileFragment() {
@@ -59,7 +60,7 @@ public class ProfileFragment extends Fragment {
         txt_loginDate = (TextView) view.findViewById(R.id.txt_loginDate);
         txt_baseShift = (TextView) view.findViewById(R.id.txt_baseShift);
 
-        img_driverImage = (CircleImageView) view.findViewById(R.id.img_driverImage);
+        img_driverImage =  view.findViewById(R.id.img_driverImage);
         img_editProfile = (ImageView) view.findViewById(R.id.img_editProfile);
 
         PersianDate persianDate = new PersianDate();
@@ -84,7 +85,7 @@ public class ProfileFragment extends Fragment {
                     }
                 }
                 Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                img_driverImage.setImageBitmap(bitmap);
+                img_driverImage.setImageBitmap(Utils.getCroppedBitmap(bitmap));
             }
 
 

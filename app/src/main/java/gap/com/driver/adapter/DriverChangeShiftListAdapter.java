@@ -27,6 +27,7 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 import gap.com.driver.R;
 import gap.com.driver.model.DriverChangedEDAList;
+import gap.com.driver.util.Utils;
 import gap.com.driver.widget.BTextView;
 
 public class DriverChangeShiftListAdapter extends RecyclerView.Adapter<DriverChangeShiftListAdapter.CustomView> {
@@ -42,7 +43,7 @@ public class DriverChangeShiftListAdapter extends RecyclerView.Adapter<DriverCha
     @NonNull
     @Override
     public CustomView onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.items_shift_layout, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.items_shift_layout_copy, viewGroup, false);
         return new CustomView(view);
     }
 
@@ -76,9 +77,10 @@ public class DriverChangeShiftListAdapter extends RecyclerView.Adapter<DriverCha
             }
         }
         Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-        customView.img_hamShift.setImageBitmap(bitmap);
+        customView.img_hamShift.setImageBitmap(Utils.getCroppedBitmap(bitmap));
 
-        System.out.println("salaryAttribute=====" + eda.getPerson().getMobileNo());
+        System.out.println("salaryAttribute=====" + bitmap.getWidth());
+        System.out.println("salaryAttribute=====" + bitmap.getByteCount());
 
         customView.img_message.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,7 +134,7 @@ public class DriverChangeShiftListAdapter extends RecyclerView.Adapter<DriverCha
     public class CustomView extends RecyclerView.ViewHolder {
         BTextView txt_hamShift, txt_code;
         ImageView img_message, img_call;
-        CircleImageView img_hamShift;
+        ImageView img_hamShift;
 
         public CustomView(@NonNull View itemView) {
             super(itemView);
@@ -141,7 +143,6 @@ public class DriverChangeShiftListAdapter extends RecyclerView.Adapter<DriverCha
             img_call = itemView.findViewById(R.id.img_call);
             txt_hamShift = itemView.findViewById(R.id.txt_hamShift);
             txt_code = itemView.findViewById(R.id.txt_code);
-
         }
     }
 }
