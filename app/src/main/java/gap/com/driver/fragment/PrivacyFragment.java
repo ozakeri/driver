@@ -1,5 +1,7 @@
 package gap.com.driver.fragment;
 
+import static android.content.Context.INPUT_METHOD_SERVICE;
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -15,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -135,6 +138,10 @@ public class PrivacyFragment extends Fragment {
                     Util.recognizeSwitchLocalPassword(Constant.SELECT_CONFIRM_LOCALPASS, 1);
                     //Util.loginIs(Constant.LOGIN_IS, true);
                     System.out.println("switch_Button11");
+
+                    InputMethodManager inputMethodManager =  (InputMethodManager)getActivity().getSystemService(INPUT_METHOD_SERVICE);
+                    inputMethodManager.toggleSoftInputFromWindow(password_edt.getApplicationWindowToken(), InputMethodManager.SHOW_FORCED, 0);
+                    password_edt.requestFocus();
                 } else {
                     Util.recognizeSwitchLocalPassword(Constant.SELECT_CONFIRM_LOCALPASS, 0);
                     //Util.loginIs(Constant.LOGIN_IS, false);
@@ -151,6 +158,11 @@ public class PrivacyFragment extends Fragment {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
                     inputLocalPassCardView.setVisibility(View.VISIBLE);
+
+                    InputMethodManager inputMethodManager =  (InputMethodManager)getActivity().getSystemService(INPUT_METHOD_SERVICE);
+                    inputMethodManager.toggleSoftInputFromWindow(password_edt.getApplicationWindowToken(), InputMethodManager.SHOW_FORCED, 0);
+                    password_edt.requestFocus();
+
                 } else {
                     inputLocalPassCardView.setVisibility(View.GONE);
                 }
@@ -206,9 +218,7 @@ public class PrivacyFragment extends Fragment {
                     System.out.println("passwordStr.equals(confirmStr)");
                     Util.recognizeInputLocalPassword(Constant.LOCALPASS, passwordStr);
                     Util.recognizeInputLocalPassword(Constant.LOCALPASSCONFIRM, confirmStr);
-                    Toast toast = Toast.makeText(getActivity(), getResources().getString(R.string.label_login_editText_ok), Toast.LENGTH_SHORT);
-                    Util.showToast1(toast, true);
-                    toast.show();
+                    Toast.makeText(getActivity(), getResources().getString(R.string.label_login_editText_ok), Toast.LENGTH_SHORT).show();
                     goToSettingsFragment();
                 } else {
                     Toast toast = Toast.makeText(getActivity(), getResources().getString(R.string.label_login_clickOk_warning), Toast.LENGTH_SHORT);

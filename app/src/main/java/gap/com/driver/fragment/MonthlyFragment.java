@@ -275,57 +275,56 @@ public class MonthlyFragment extends Fragment {
                 String adapterDay = (String) ((TextView) view.findViewById(R.id.day)).getText();
 
                 final Roozh roozh = new Roozh();
-                roozh.PersianToGregorian(Integer.parseInt(adapterYear), Integer.parseInt(adapterMonth), Integer.parseInt(adapterDay));
-                LocalDate jamesBirthDay = new LocalDate(roozh.getYear(), roozh.getMonth(), roozh.getDay()+1);
-                LocalDate now = new LocalDate(persianDate.getGrgYear(), persianDate.getGrgMonth(), persianDate.getGrgDay());
-                int monthsBetween = Months.monthsBetween(jamesBirthDay, now).getMonths();
+                if (!adapterYear.equals("") && !adapterMonth.equals("") && !adapterDay.equals("")){
+                    roozh.PersianToGregorian(Integer.parseInt(adapterYear), Integer.parseInt(adapterMonth), Integer.parseInt(adapterDay));
+                    LocalDate jamesBirthDay = new LocalDate(roozh.getYear(), roozh.getMonth(), roozh.getDay());
+                    LocalDate now = new LocalDate(persianDate.getGrgYear(), persianDate.getGrgMonth(), persianDate.getGrgDay());
+                    int monthsBetween = Months.monthsBetween(jamesBirthDay, now).getMonths();
 
-                // TODO Auto-generated method stub
+                    System.out.println("Monthly Fragment id====" + id);
+                    if (!id.trim().isEmpty() && monthsBetween < 6) {
+                        String txt_day1 = ((TextView) view.findViewById(R.id.calendar_day_gridcell)).getText().toString();
+                        String txt_day2 = ((TextView) view.findViewById(R.id.calendar_day_gridcell_1)).getText().toString();
+                        String txt_day3 = ((TextView) view.findViewById(R.id.calendar_day_gridcell_2)).getText().toString();
+                        String strDate = "";
+                        if (!txt_day1.equals("")) {
+                            strDate = txt_day1;
+                        } else if (!txt_day2.equals("")) {
+                            strDate = txt_day2;
+                        } else if (!txt_day3.equals("")) {
+                            strDate = txt_day3;
+                        }
 
-                System.out.println("Monthly Fragment id====" + id);
-                if (!id.trim().isEmpty() && monthsBetween < 6) {
-                    String txt_day1 = ((TextView) view.findViewById(R.id.calendar_day_gridcell)).getText().toString();
-                    String txt_day2 = ((TextView) view.findViewById(R.id.calendar_day_gridcell_1)).getText().toString();
-                    String txt_day3 = ((TextView) view.findViewById(R.id.calendar_day_gridcell_2)).getText().toString();
-                    String strDate = "";
-                    if (!txt_day1.equals("")) {
-                        strDate = txt_day1;
-                    } else if (!txt_day2.equals("")) {
-                        strDate = txt_day2;
-                    } else if (!txt_day3.equals("")) {
-                        strDate = txt_day3;
+
+                        if (!strDate.equals("")) {
+                            day = Integer.parseInt(strDate);
+                            tmpDateConvertor.setGregorianDate(year, month, day);
+
+                            sharedData.setYear(year);
+                            sharedData.setMonth(month);
+                            sharedData.setDay(day);
+
+                            sharedData.setGridOnClick(Constant.ACTION_GRID_ONCLICK);
+                            sharedData.setSelectedMenuItem(Constant.ACTION_DAY);
+                            //sharedData.setSalaryListItemId(id);
+                        }
+
+                        fragment = new WeekDayFragment();
+                        fragmentManager = getActivity().getSupportFragmentManager();
+                        Bundle args = new Bundle();
+                        args.putParcelable("getSalaryAttributeResponseBean", getSalaryAttributeResponseBean);
+                        fragment.setArguments(args);
+                        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+                        Util.recognizeSelectedItems(Constant.RECOGNIZE, "WeekDayFragment");
+                        EventBus.getDefault().post(new EventBusModel("WeekDayFragment"));
+
+                        sharedData.setCurrentDate(true);
+                        sharedData.setCurrentDay(day);
+
+                    } else {
+                        Utils.showToast(getActivity(), R.string.message_toast_recyclerView_click, false);
                     }
-
-
-                    if (!strDate.equals("")) {
-                        day = Integer.parseInt(strDate);
-                        tmpDateConvertor.setGregorianDate(year, month, day);
-
-                        sharedData.setYear(year);
-                        sharedData.setMonth(month);
-                        sharedData.setDay(day);
-
-                        sharedData.setGridOnClick(Constant.ACTION_GRID_ONCLICK);
-                        sharedData.setSelectedMenuItem(Constant.ACTION_DAY);
-                        //sharedData.setSalaryListItemId(id);
-                    }
-
-                    fragment = new WeekDayFragment();
-                    fragmentManager = getActivity().getSupportFragmentManager();
-                    Bundle args = new Bundle();
-                    args.putParcelable("getSalaryAttributeResponseBean", getSalaryAttributeResponseBean);
-                    fragment.setArguments(args);
-                    fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
-                    Util.recognizeSelectedItems(Constant.RECOGNIZE, "WeekDayFragment");
-                    EventBus.getDefault().post(new EventBusModel("WeekDayFragment"));
-
-                    sharedData.setCurrentDate(true);
-                    sharedData.setCurrentDay(day);
-
-                } else {
-                    Utils.showToast(getActivity(), R.string.message_toast_recyclerView_click, false);
                 }
-
             }
         }));
 
